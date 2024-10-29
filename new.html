@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.border-animation {
+    display: inline-block;
+    padding: 20px 40px;
+    font-size: 20px;
+    color: #000;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.border-animation::before,
+.border-animation::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(90deg, #ff00cc, #3333ff);
+    width: 200%;
+    height: 4px;
+    transition: all .2s ease;
+}
+
+.border-animation::before {
+    top: 0;
+    left: -100%;
+}
+
+.border-animation::after {
+    bottom: 0;
+    right: -100%;
+}
+
+.border-animation:hover::before {
+    left: 0;
+}
+
+.border-animation:hover::after {
+    right: 0;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="border-animation">
+        Animated Border
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #slider {
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+            border: 5px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="slider">
+        <img id="slideImage" src="1.png" alt="Slide Image">
+    </div>
+
+    <script>
+        const imageContaner = [
+            '1.png', '2.png', '3.png', '4.png', '5.png', '6.png',
+            '7.png', '8.png', '9.png', '10.png', '14.png', '15.png'
+        ];
+
+        const newImage = ['11.png', '12.png', '13.png'];
+
+        const slides = [...imageContaner, ...newImage];
+
+        const slideImage = document.getElementById("slideImage");
+
+        let counter = 0;
+
+        setInterval(function(){
+            counter++;
+            if (counter >= slides.length) {
+                counter = 0;
+            }
+            slideImage.src = slides[counter];
+        }, 1000);
+    </script>
+
+</body>
+</html>
